@@ -46,6 +46,8 @@ public class Main {
     }
 
     private static void generateDishCombo() {
+        ArrayList<String> selectedTypes = new ArrayList<>();
+
         System.out.println("Начинаем конструировать обед...");
 
         System.out.println("Введите количество наборов, которые нужно сгенерировать:");
@@ -55,7 +57,6 @@ public class Main {
         System.out.println("Вводите типы блюда, разделяя символом переноса строки (enter). " +
                 "Для завершения ввода введите пустую строку");
         String nextItem = scanner.nextLine();
-        ArrayList<String> selectedTypes = new ArrayList<>();
 
         //реализуйте ввод типов блюд
         while (!nextItem.isEmpty()) {
