@@ -10,35 +10,36 @@ public class DinnerConstructor {
     Random random = new Random();
 
     void addNewDish(String type, String name) {
-        String addDishSuccessfully = String.format("Блюдо \"%s\" успешно добавлено в тип \"%s\"", name, type);
-        String notAddDish = String.format("Блюдо \"%s\" уже есть в меню", name);
+        String messangeAddDishSuccessfully = String.format("Блюдо \"%s\" успешно добавлено в тип \"%s\"", name, type);
+        String messangeNotAddDish = String.format("Блюдо \"%s\" уже есть в меню", name);
 
-        if (isCheckDishInLunch(name)) {
-            System.out.println(notAddDish);
+        if (isCheckDish(name)) {
+            System.out.println(messangeNotAddDish);
         } else if (isCheckType(type)) {
             businessLunch.get(type).add(name);
-            System.out.println(addDishSuccessfully);
+            System.out.println(messangeAddDishSuccessfully);
         } else {
             addNewValueInLunch(type, name);
-            System.out.println(addDishSuccessfully);
+            System.out.println(messangeAddDishSuccessfully);
         }
     }
 
     void generateCombo(int number, ArrayList<String> types) {
         for (int i = 0; i < number; i++) {
-            String combo = String.format("Комбо %d:", (i+1));
-            System.out.println(combo);
+            String messangeComboNumber = String.format("Комбо %d:", (i+1));
+
+            System.out.println(messangeComboNumber);
             ArrayList<String> newCombo = new ArrayList<>();
             for (String type : types) {
                 int dishNumber = random.nextInt(businessLunch.get(type).size());
                 String dish = businessLunch.get(type).get(dishNumber);
                 newCombo.add(dish);
             }
-            System.out.println(String.join(", ", newCombo).concat("\n"));
+            System.out.println(newCombo.toString().concat("\n"));
         }
     }
 
-    private boolean isCheckDishInLunch(String name) {
+    private boolean isCheckDish(String name) {
         for (ArrayList<String> dishes : businessLunch.values()) {
             if (dishes.contains(name)) {
                 return true;
@@ -53,6 +54,7 @@ public class DinnerConstructor {
 
     private void addNewValueInLunch(String type, String name) {
         ArrayList<String> dishForType = new ArrayList<>();
+        
         dishForType.add(name);
         businessLunch.put(type, dishForType);
     }
