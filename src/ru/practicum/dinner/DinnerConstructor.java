@@ -27,9 +27,9 @@ public class DinnerConstructor {
     void generateCombo(int number, ArrayList<String> types) {
         for (int i = 0; i < number; i++) {
             String messangeComboNumber = String.format("Комбо %d:", (i+1));
+            ArrayList<String> newCombo = new ArrayList<>();
 
             System.out.println(messangeComboNumber);
-            ArrayList<String> newCombo = new ArrayList<>();
             for (String type : types) {
                 int dishNumber = random.nextInt(businessLunch.get(type).size());
                 String dish = businessLunch.get(type).get(dishNumber);
