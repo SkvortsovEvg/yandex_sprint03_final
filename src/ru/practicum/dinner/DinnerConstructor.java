@@ -10,8 +10,8 @@ public class DinnerConstructor {
     Random random = new Random();
 
     void addNewDish(String type, String name) {
-        String messangeAddDishSuccessfully = String.format("Блюдо \"%s\" успешно добавлено в тип \"%s\"", name, type);
         String messangeNotAddDish = String.format("Блюдо \"%s\" уже есть в меню", name);
+        String messangeAddDishSuccessfully = String.format("Блюдо \"%s\" успешно добавлено в тип \"%s\"", name, type);
 
         if (isCheckDish(name)){
             System.out.println(messangeNotAddDish);
