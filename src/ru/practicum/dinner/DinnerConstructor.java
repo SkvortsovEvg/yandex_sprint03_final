@@ -13,13 +13,14 @@ public class DinnerConstructor {
         String messangeAddDishSuccessfully = String.format("Блюдо \"%s\" успешно добавлено в тип \"%s\"", name, type);
         String messangeNotAddDish = String.format("Блюдо \"%s\" уже есть в меню", name);
 
-        if (isCheckDish(name)) {
+        if (isCheckDish(name)){
             System.out.println(messangeNotAddDish);
-        } else if (isCheckType(type)) {
-            businessLunch.get(type).add(name);
-            System.out.println(messangeAddDishSuccessfully);
         } else {
-            addNewValueInLunch(type, name);
+            if (isCheckType(type)){
+                businessLunch.get(type).add(name);
+            } else {
+                addNewValueInLunch(type, name);
+            }
             System.out.println(messangeAddDishSuccessfully);
         }
     }
